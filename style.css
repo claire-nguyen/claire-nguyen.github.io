@@ -14,12 +14,12 @@ body {
 
 h1,
 h2 {
-  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   color: #f2ead7;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 35px;
   margin: 0 0 10px 0;
 }
 
