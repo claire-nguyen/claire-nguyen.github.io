@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wizarding World - Hogwarts Characters</title>
+
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -16,6 +18,7 @@
       <a class="nav-link" href="index.html">Home</a>
       <a class="nav-link" href="classified.html">Classified Files</a>
     </nav>
+    <button id="theme-button" class="action-button">Switch Light / Dark Mode</button>
   </header>
 
   <main>
@@ -24,8 +27,16 @@
       <h2 class="section-title">Introduction</h2>
       <img id="portrait" class="portrait-frame" src="wizarding-world-portrait.png" alt="Portrait of Claire" width="300">
       <p>Welcome, Muggle! This is Claire Ashchoo, the Prefect of Slytherin.</p>
-      <p>In her last year at Hogwarts, her mission is to mingle with Muggle students and write reports on them.</p>
+      <p>During her last year at Hogwarts, her mission is to mingle with Muggle students and write reports on them.</p>
       <p>So, you might be able to find her studying at Toronto Metropolitan University, somewhere, maybe?</p>
+    </section>
+
+    <section class="panel" id="greeting-section">
+      <h2 class="section-title">Visitor Registry</h2>
+      <label for="name-input">Your name, Muggle:</label>
+      <input type="text" id="name-input" placeholder="Enter your name">
+      <button id="greet-button" class="action-button">Greet me</button>
+      <p id="greeting-message"></p>
     </section>
 
     <section class="panel character origin">
@@ -50,10 +61,16 @@
       </div>
     </section>
 
+    <section class="panel" id="fact-section">
+      <h2 class="section-title">Random Secret</h2>
+      <button id="fact-button" class="action-button">Reveal a random fact</button>
+      <p id="fact-display"></p>
+    </section>
+
     <section class="panel">
       <h2 class="section-title">Explore More</h2>
       <div class="explore-links">
-        <p class="link-card">See my Muggle-like work through this forgotten <a href="https://claire-khanhnguyen.my.canva.site/portfolio">Portfolio</a>.</p>
+        <p class="link-card">See my Muggle-like work through this forgotten <a href="https://claire-khanhnguyen.my.canva.site/portfolio">portfolio</a>.</p>
         <p class="link-card">Love the wizarding world? Visit <a href="https://www.harrypotter.com/profile/3234b32e-dad0-45b8-a37e-dfd6948490ff">Wizarding World</a>.</p>
         <p class="link-card">Dare to read the secrets? Open the <a href="classified.html">Classified Files</a>.</p>
       </div>
@@ -61,11 +78,8 @@
   </main>
 
   <footer>
-    <p>© 2026 Claire Khanh Nguyen. Muggle student project for DG8002 - Digital Environment Environments @ TMU.</p>
+    <p>© 2026 Claire Khanh Nguyen. Muggle student project for DG8002 - Digital Media Environments @ TMU.</p>
   </footer>
-
-  <script src="script.js">
-  </script>
 
 </body>
 </html>

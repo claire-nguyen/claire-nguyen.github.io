@@ -219,3 +219,56 @@ footer {
     width: 100%;
   }
 }
+
+.action-button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  color: #f2ead7;
+  background-color: #1a472a;
+  border: 1px solid #b08d3c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+ 
+.action-button:hover {
+  color: #1e1b16;
+  background-color: #b08d3c;
+}
+ 
+input {
+  width: 250px;
+  max-width: 100%;
+  margin: 5px 10px 5px 0;
+  padding: 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  border: 1px solid #b08d3c;
+  border-radius: 5px;
+}
+
+#greeting-message,
+#fact-display {
+  margin-bottom: 0;
+  font-weight: bold;
+  color: #1a472a;
+}
+ 
+.light-mode {
+  color: #1e1b16;
+  background-color: #dfe8dc;
+}
+ 
+.light-mode h1,
+.light-mode h2 {
+  color: #1a472a;
+}
+ 
+.light-mode .panel {
+  background-color: #fbf8ef;
+}
+ 
+.light-mode footer {
+  color: #3d4a3f;
+}
