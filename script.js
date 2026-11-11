@@ -2,8 +2,18 @@
 const themeButton = document.getElementById("theme-button");
 const pageBody = document.querySelector("body");
 
+let isLightMode = false;
+
 function switchTheme() {
   pageBody.classList.toggle("light-mode");
+
+  if (isLightMode === false) {
+    isLightMode = true;
+    themeButton.textContent = "⏾ DARK MODE";
+  } else {
+    isLightMode = false;
+    themeButton.textContent = "☀︎ LIGHT MODE";
+  }
 }
 
 themeButton.addEventListener("click", switchTheme);
@@ -14,10 +24,10 @@ const factButton = document.getElementById("fact-button");
 const factDisplay = document.getElementById("fact-display");
 
 const facts = [
-  "Claire's patronus is an osprey.",
-  "She plays both the violin and the piano.",
-  "She speaks French and Japanese.",
-  "She can guess every spice in a soup on the first sip, even if she hates cooking.",
+  "Arachnophobia is Claire's deathly weakness. No spiders allowed!",
+  "At first, Sorting Hat wanted to put Claire in Ravenclaw, but she refused.",
+  "Her name as a Muggle is Khanh Nguyen, but she prefers to be called Claire.",
+  "Anyone who is marking this website is automatically gave Claire an A grade.",
   "She is sitting next to you in an Invisibility Cloak right now.",
 ];
 

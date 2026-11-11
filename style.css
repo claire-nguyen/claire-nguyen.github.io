@@ -82,6 +82,7 @@ a:focus-visible {
   text-decoration: none;
   background-color: #1a472a;
   border: 1px solid #b08d3c;
+  border-radius: 5px;
 }
 
 .nav-link:visited {
@@ -180,6 +181,10 @@ footer {
   border-top: 3px double #b08d3c;
 }
 
+#greeting-section {
+  text-align: center;
+}
+
 @media (max-width: 700px) {
   body {
     padding: 10px;
@@ -246,15 +251,39 @@ input {
   font-size: 16px;
   border: 1px solid #b08d3c;
   border-radius: 5px;
-  text-align: center;
 }
 
 #greeting-message,
-#fact-display {
-  margin-bottom: 0;
-  font-weight: italic;
+#fact-section {
   text-align: center;
-  color: #1a472a;
+  color: #f2ead7;
+  background-color: #1a472a;
+  border: 2px solid #b08d3c;
+}
+
+#fact-section .section-title {
+  color: #f2ead7;
+}
+
+#fact-section .action-button {
+  color: #1e1b16;
+  background-color: #b08d3c;
+}
+
+#fact-section .action-button:hover {
+  background-color: #f2ead7;
+}
+
+#fact-display {
+  max-width: 700px;
+  min-height: 70px;
+  margin: 20px auto 0 auto;
+  padding: 15px;
+  font-style: italic;
+  color: #f2ead7;
+  background-color: #0d2318;
+  border: 2px dashed #b08d3c;
+  border-radius: 8px;
 }
  
 .light-mode {
@@ -269,6 +298,19 @@ input {
  
 .light-mode .panel {
   background-color: #fbf8ef;
+}
+
+.light-mode .action-button,
+.light-mode .nav-link {
+  color: #1e1b16;
+  background-color: #b08d3c;
+  border: 1px solid #1a472a;
+}
+
+.light-mode .action-button:hover,
+.light-mode .nav-link:hover {
+  color: #f2ead7;
+  background-color: #1a472a;
 }
  
 .light-mode footer {
