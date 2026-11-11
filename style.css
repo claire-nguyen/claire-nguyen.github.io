@@ -246,12 +246,14 @@ input {
   font-size: 16px;
   border: 1px solid #b08d3c;
   border-radius: 5px;
+  text-align: center;
 }
 
 #greeting-message,
 #fact-display {
   margin-bottom: 0;
-  font-weight: bold;
+  font-weight: italic;
+  text-align: center;
   color: #1a472a;
 }
  
