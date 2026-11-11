@@ -307,9 +307,9 @@ input {
 
 .light-mode .action-button,
 .light-mode .nav-link {
-  color: #1e1b16;
-  background-color: #b08d3c;
-  border: 1px solid #1a472a;
+  color: #1a472a;
+  background-color: #f2ead7;
+  border: 1px solid #b08d3c;
 }
 
 .light-mode .action-button:hover,
