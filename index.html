@@ -9,6 +9,8 @@
   <script src="script.js" defer></script>
 </head>
 
+<div id="wand"><div id="wand-tip"></div></div>
+
 <body>
   <header id="site-header">
     <h1>Hogwarts School of Witchcraft and Wizardry</h1>
@@ -61,19 +63,31 @@
       </div>
     </section>
 
-        <section class="panel" id="log-section">
-      <h2 class="section-title">Muggle Observation Log</h2>
-      <p>Claire's mission: file a report on every Muggle student she meets.</p>
-      <input type="text" id="report-input" placeholder="e.g. Drinks coffee at 3 a.m.">
-      <button id="report-button" class="action-button">Add Report</button>
-      <p id="report-message"></p>
-      <p id="report-count"></p>
-      <div id="report-list"></div>
+    <section class="panel" id="lock-section">
+      <h2 class="section-title">PROPHECY ORB</h2>
+      <p>The Prophecy Orb is sealed. Drag the pieces into the right slots to cast the charm that opens locked doors.</p>
+      <div class="lock-row">
+        <div class="slot" id="slot-1"></div>
+        <div class="slot" id="slot-2"></div>
+        <div class="slot" id="slot-3"></div>
+        <div class="slot" id="slot-4"></div>
+        <div class="slot" id="slot-5"></div>
+      </div>
+      <div class="lock-row">
+        <div class="piece" id="piece-mo" draggable="true">MO</div>
+        <div class="piece" id="piece-a" draggable="true">A</div>
+        <div class="piece" id="piece-ra" draggable="true">RA</div>
+        <div class="piece" id="piece-lo" draggable="true">LO</div>
+        <div class="piece" id="piece-ho" draggable="true">HO</div>
+      </div>
+      <p id="game-count">Pieces placed: 0 / 5</p>
+      <p id="game-message"></p>
     </section>
 
-    <section class="panel" id="fact-section">
-      <h2 class="section-title">PROPHETCY ORB</h2>
-      <button id="fact-button" class="action-button">Reveal a random fact</button>
+    <section class="panel hidden" id="fact-section">
+      <h2 class="section-title">PROPHECY ORB IS SHINING...</h2>
+      <p id="orb-message"></p>
+      <button id="fact-button" class="action-button">Reveal a fact</button>
       <p id="fact-display"></p>
     </section>
 

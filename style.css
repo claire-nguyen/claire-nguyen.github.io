@@ -322,58 +322,97 @@ input {
   color: #3d4a3f;
 }
 
-#log-section {
+body,
+a,
+button,
+.piece {
+  cursor: none;
+}
+
+#lock-section {
   text-align: center;
 }
 
-#report-message,
-#report-count {
+.lock-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.slot {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e6dcc3;
+  border: 2px dashed #b08d3c;
+  border-radius: 8px;
+}
+
+.piece {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #f2ead7;
+  background-color: #1a472a;
+  border: 2px solid #b08d3c;
+  border-radius: 8px;
+}
+
+#game-count,
+#game-message {
   margin-bottom: 0;
   font-weight: bold;
 }
 
-.success-message {
-  color: #1a472a;
+.shake {
+  animation: shake 0.4s;
 }
 
-.error-message {
-  color: #9b1c1c;
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-8px); }
+  100% { transform: translateX(0); }
 }
 
-.input-focus {
-  background-color: #fff8d6;
+#wand {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 5px;
+  height: 45px;
+  background-color: #6b4a2b;
+  border-radius: 3px;
+  transform-origin: top center;
+  transform: rotate(-35deg);
+  pointer-events: none;
 }
 
-.report-card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding: 10px 15px;
-  text-align: left;
-  background-color: #e6dcc3;
-  border: 1px solid #b08d3c;
-  border-left: 6px solid #b08d3c;
-  border-radius: 5px;
+#wand-tip {
+  position: absolute;
+  top: -3px;
+  left: -1px;
+  width: 7px;
+  height: 7px;
+  background-color: #f2ead7;
+  border-radius: 50%;
+  transition: box-shadow 0.3s;
 }
 
-.report-card p {
-  margin: 0;
+.glow {
+  background-color: #fff7a8;
+  box-shadow: 0 0 12px 6px #ffd84d;
 }
 
-.report-card .action-button {
-  margin-top: 0;
-  padding: 5px 12px;
-}
-
-.report-card.completed {
-  background-color: #cfe0cf;
-  border-left-color: #1a472a;
-}
-
-.report-card.completed p {
-  text-decoration: line-through;
-  color: #4a5a3c;
+.hidden {
+  display: none;
 }
