@@ -178,7 +178,7 @@ async function loadSpell(url, random) {
     const spells = await response.json();
 
     if (spells.length === 0) {
-      showSpellError("Hmm... Maybe I haven't note that spell down. Try another one!");
+      showSpellError("Hmm... Maybe I haven't noted that spell down. Try another one!");
       return;
     }
 

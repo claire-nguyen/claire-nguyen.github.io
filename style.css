@@ -385,36 +385,105 @@ input {
 /* Spellbook (API section) */
 #spell-section {
   text-align: center;
+  color: #f2ead7;
+  background-color: #12301f;
+  background-image: radial-gradient(circle at top, #1f5a37 0%, #12301f 60%, #0d2318 100%);
+  border: 2px solid #b08d3c;
+  box-shadow: 0 0 18px rgba(176, 141, 60, 0.35), inset 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+#spell-section .section-title {
+  color: #f2ead7;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #b08d3c;
+}
+
+#spell-section .section-title::before {
+  content: "✦ ";
+  color: #b08d3c;
+}
+
+#spell-section .section-title::after {
+  content: " ✦";
+  color: #b08d3c;
+}
+
+#spell-section input {
+  color: #f2ead7;
+  background-color: #0d2318;
+  border: 1px solid #b08d3c;
+}
+
+#spell-section input::placeholder {
+  color: #b9c2bd;
+  font-style: italic;
+}
+
+#spell-section .action-button {
+  color: #1e1b16;
+  background-color: #b08d3c;
+}
+
+#spell-section .action-button:hover {
+  background-color: #f2ead7;
+  box-shadow: 0 0 12px #b08d3c;
 }
 
 #spell-result {
+  min-height: 40px;
   margin-top: 20px;
+  font-style: italic;
+}
+
+#spell-result.error-message {
+  color: #ffb4a2;
 }
 
 .spell-card {
   max-width: 600px;
   margin: 0 auto;
-  padding: 15px 20px;
+  padding: 20px 25px;
+  font-style: normal;
   text-align: center;
-  background-color: #e6dcc3;
-  border: 1px solid #b08d3c;
+  color: #1e1b16;
+  background-color: #f2ead7;
+  background-image: radial-gradient(circle, #fbf8ef 0%, #e6dcc3 100%);
+  border: 3px double #b08d3c;
   border-radius: 8px;
+  box-shadow: 0 0 20px rgba(176, 141, 60, 0.7);
+  animation: spell-appear 0.8s ease-out, spell-glow 3s ease-in-out 0.8s infinite;
 }
 
 .spell-card h3 {
-  margin-top: 0;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  font-size: 26px;
+  letter-spacing: 2px;
   color: #1a472a;
+  border-bottom: 1px solid #b08d3c;
 }
 
-.spell-card img {
-  display: block;
-  margin: 0 auto 15px auto;
-  border: 2px solid #b08d3c;
-  border-radius: 8px;
+.spell-card h3::before {
+  content: "✦ ";
+  color: #b08d3c;
 }
 
-.error-message,
-#greeting-message.error-message {
-  font-weight: bold;
-  color: #8b1e1e;
+.spell-card h3::after {
+  content: " ✦";
+  color: #b08d3c;
+}
+
+.spell-card p {
+  margin: 6px 0;
+}
+
+@keyframes spell-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
