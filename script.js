@@ -77,7 +77,6 @@ const answers = {
 
 let placedCount = 0;
 
-// Detect when dragging begins on ALL pieces
 pieces.forEach((piece) => {
   piece.addEventListener("dragstart", (event) => {
     event.dataTransfer.setData("text/plain", piece.id);
@@ -90,7 +89,6 @@ function unlockOrb() {
   orbMessage.textContent = "🔓 Alohomora! The lock opened. You can now explore the Orb!";
 }
 
-// Allow pieces to be dropped onto slots
 slots.forEach((slot) => {
   slot.addEventListener("dragover", (event) => {
     event.preventDefault();
@@ -103,7 +101,6 @@ slots.forEach((slot) => {
     const piece = document.getElementById(pieceId);
 
     if (answers[slot.id] === pieceId) {
-      // Correct: move the piece into the slot and lock it
       slot.appendChild(piece);
       piece.draggable = false;
       placedCount++;
@@ -115,7 +112,6 @@ slots.forEach((slot) => {
         unlockOrb();
       }
     } else {
-      // Wrong: the piece stays where it was, the screen shakes
       gameMessage.textContent = "Wrong slot! Try again.";
       gameMessage.classList.add("error-message");
       mainArea.classList.add("shake");
@@ -123,33 +119,97 @@ slots.forEach((slot) => {
   });
 });
 
-// Remove the shake class when the animation ends so it can shake again
 mainArea.addEventListener("animationend", () => {
   mainArea.classList.remove("shake");
 });
 
+// NEW APIs: Wizarding World API for Spells
+const spellInput = document.getElementById("spell-input");
+const spellSearchButton = document.getElementById("spell-search-button");
+const spellRandomButton = document.getElementById("spell-random-button");
+const spellResult = document.getElementById("spell-result");
 
-// Wand cursor
-const wand = document.getElementById("wand");
-const wandTip = document.getElementById("wand-tip");
+function showSpell(spell) {
+  spellResult.innerHTML = "";
+  spellResult.classList.remove("error-message");
 
-function moveWand(event) {
-  wand.style.left = event.clientX + "px";
-  wand.style.top = event.clientY + "px";
+  const card = document.createElement("div");
+  card.classList.add("spell-card");
+
+  const name = document.createElement("h3");
+  name.textContent = spell.name;
+
+  const incantation = document.createElement("p");
+  incantation.textContent = "Incantation: " + (spell.incantation || "None");
+
+  const type = document.createElement("p");
+  type.textContent = "Type: " + (spell.type || "Unknown");
+
+  const light = document.createElement("p");
+  light.textContent = "Light: " + (spell.light || "None");
+
+  const effect = document.createElement("p");
+  effect.textContent = "Effect: " + (spell.effect || "Unknown");
+
+  card.appendChild(name);
+  card.appendChild(incantation);
+  card.appendChild(type);
+  card.appendChild(light);
+  card.appendChild(effect);
+  spellResult.appendChild(card);
 }
 
-document.addEventListener("mousemove", moveWand);
-document.addEventListener("dragover", moveWand);
+function showSpellError(message) {
+  spellResult.textContent = message;
+  spellResult.classList.add("error-message");
+}
 
-// Wands light up
-const allButtons = document.querySelectorAll("button");
+async function loadSpell(url, random) {
+  spellResult.classList.remove("error-message");
+  spellResult.textContent = "Searching the spellbook...";
 
-allButtons.forEach((button) => {
-  button.addEventListener("mousedown", () => {
-    wandTip.classList.add("glow");
-  });
-});
+  try {
+    const response = await fetch(url);
 
-document.addEventListener("mouseup", () => {
-  wandTip.classList.remove("glow");
-});
+    if (!response.ok) {
+      throw new Error(`HTTP Error: ${response.status}`);
+    }
+
+    const spells = await response.json();
+
+    if (spells.length === 0) {
+      showSpellError("Hmm... Maybe I haven't note that spell down. Try another one!");
+      return;
+    }
+
+    let chosenSpell = spells[0];
+    if (random) {
+      const randomIndex = parseInt(Math.random() * spells.length);
+      chosenSpell = spells[randomIndex];
+    }
+
+    showSpell(chosenSpell);
+  } catch (error) {
+    console.error("Unable to retrieve spell:", error);
+    showSpellError("The spellbook is unavailable right now. Please try again later.");
+  }
+}
+
+function searchSpell() {
+  const searchName = spellInput.value.trim();
+
+  if (searchName === "") {
+    showSpellError("Please enter a spell name.");
+    return;
+  }
+
+  const url = "https://wizard-world-api.herokuapp.com/Spells?Name=" + encodeURIComponent(searchName);
+  loadSpell(url, false);
+}
+
+function randomSpell() {
+  loadSpell("https://wizard-world-api.herokuapp.com/Spells", true);
+}
+
+spellSearchButton.addEventListener("click", searchSpell);
+spellRandomButton.addEventListener("click", randomSpell);
